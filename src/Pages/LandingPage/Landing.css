@@ -1,0 +1,54 @@
+.main{
+    min-height: 93vh;
+    display: flex;
+    align-items: center;
+    background-image: url(./background.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.title{
+    font-size: 60px;
+}
+
+.subtitle{
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.intro-text{
+    width: 100%;
+    text-align: center;
+}
+
+.buttonContainer{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.landingButton{
+    width: 150px;
+    height: 55px;
+}
+
+@media only screen and(min-width:1200px) {
+    .buttonContainer{
+        padding: 0 200px;
+    }
+
+    .title{
+        padding: 0 100px;
+    }
+}
+
+@media only screen and(max-width:768px) {
+    .buttonContainer {
+        font-size: 30px;
+    }
+
+    .title {
+        width: 80px;
+        height: 50px;
+    }
+}
