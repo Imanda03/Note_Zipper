@@ -3,8 +3,20 @@ import "./Landing.css";
 import { Button, Container } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
 import FiberNewIcon from "@mui/icons-material/FiberNew";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
-const Landing = () => {
+const Landing = ({ history }) => {
+  const navigate = useNavigate();
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/myNotes");
+    }
+  }, [userInfo]);
   return (
     <div className="main">
       <Container>
@@ -14,7 +26,7 @@ const Landing = () => {
             <p className="subtitle">One Safe place for all your notes</p>
           </div>
           <div className="buttonContainer">
-            <a href="/login">
+            <Link to="/login">
               <Button
                 variant="contained"
                 size="large"
@@ -24,8 +36,8 @@ const Landing = () => {
               >
                 Login
               </Button>
-            </a>
-            <a href="/login">
+            </Link>
+            <Link to="/register">
               <Button
                 variant="contained"
                 size="large"
@@ -35,7 +47,7 @@ const Landing = () => {
               >
                 Sign Up
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       </Container>
